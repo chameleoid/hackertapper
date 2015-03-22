@@ -3,4 +3,6 @@ game.module(
 )
 .body(function() {
   game.addAsset('volter.fnt');
+  game.addAsset('volter-small.fnt');
+  game.addAsset('code.json');
 });
