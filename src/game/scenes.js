@@ -49,6 +49,19 @@ game.module(
       this._tapEmitter.textures.push(this._tapText._cachedSprite.texture);
 
       this.addEmitter(this._tapEmitter);
+
+      var codeOffset = 0;
+      (function codeTransform() {
+        if (codeOffset != this._codeOffset) {
+          this._codeText.updateTransform();
+          this._codeText.position.set(
+            0,
+            game.system.height - this._codeText.textHeight
+          );
+        }
+
+        window.requestAnimationFrame(codeTransform.bind(this));
+      }).apply(this);
     },
 
     mousedown: function(e) {
@@ -73,12 +86,6 @@ game.module(
       this.code = this._code.substr(offset, this._codeOffset - offset);
 
       this._codeText.setText(this.code);
-
-      this._codeText.updateTransform(); // <- bottle neck
-      this._codeText.position.set(
-        0,
-        game.system.height - this._codeText.textHeight
-      );
     },
 
     updateScore: function(score) {
