@@ -50,18 +50,20 @@ game.module(
 
       this.addEmitter(this._tapEmitter);
 
-      var codeOffset = 0;
-      (function codeTransform() {
-        if (codeOffset != this._codeOffset) {
-          this._codeText.updateTransform();
-          this._codeText.position.set(
-            0,
-            game.system.height - this._codeText.textHeight
-          );
-        }
+      this.cube = new game.Cube();
+      this.stage.addChild(this.cube.sprite);
+    },
 
-        window.requestAnimationFrame(codeTransform.bind(this));
-      }).apply(this);
+    update: function() {
+      this._super();
+
+      this.cube.update();
+
+      this._codeText.updateTransform();
+      this._codeText.position.set(
+        0,
+        game.system.height - this._codeText.textHeight
+      );
     },
 
     mousedown: function(e) {
