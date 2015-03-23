@@ -3,6 +3,7 @@ game.module(
 )
 .require(
   'game.assets',
+  'game.extensions',
   'game.objects',
   'game.scenes'
 )
