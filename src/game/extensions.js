@@ -8,8 +8,13 @@ game.module(
 
   game.createClass('Three', {
     init: function() {
-      var renderer = new game.THREE.WebGLRenderer({ alpha: true });
-      renderer.setSize(game.config.system.width, game.config.system.height);
+      var renderer = new game.THREE.WebGLRenderer({
+        alpha: true,
+        antialias: true,
+        preserveDrawingBuffer: true,
+      });
+
+      renderer.setSize(game.system.width, game.system.height);
 
       this.renderer = renderer;
 
@@ -23,7 +28,7 @@ game.module(
       this.scene = new game.THREE.Scene();
 
       this.camera = new game.THREE.PerspectiveCamera(
-        70, game.config.system.width / game.config.system.height, 1, 1000
+        70, game.system.width / game.system.height, 1, 1000
       );
 
       this.camera.position.z = 400;

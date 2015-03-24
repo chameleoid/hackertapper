@@ -52,6 +52,14 @@ game.module(
 
       this.cube = new game.Cube();
       this.stage.addChild(this.cube.sprite);
+
+      this.cube.mousedown = (function(e) {
+        this.updateScore(this.tapScore);
+        this._tapEmitter.position.set(e.global.x, e.global.y);
+        this._tapEmitter.emit(1);
+
+        this.addCode(this.tapScore * 3);
+      }).bind(this);
     },
 
     update: function() {
@@ -59,19 +67,10 @@ game.module(
 
       this.cube.update();
 
-      this._codeText.updateTransform();
       this._codeText.position.set(
         0,
         game.system.height - this._codeText.textHeight
       );
-    },
-
-    mousedown: function(e) {
-      this.updateScore(this.tapScore);
-      this._tapEmitter.position.set(e.global.x, e.global.y);
-      this._tapEmitter.emit(1);
-
-      this.addCode(this.tapScore * 3);
     },
 
     addCode: function(bytes) {
