@@ -26,7 +26,7 @@ game.module(
         var gl = this.gl;
 
         gl.readPixels(
-          e.swipeX, game.config.system.height - e.swipeY, 1, 1,
+          e.swipeX, game.system.height - e.swipeY, 1, 1,
           gl.RGBA, gl.UNSIGNED_BYTE, pixelData
         );
 
