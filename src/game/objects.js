@@ -21,6 +21,7 @@ game.module(
 
       this.gl = this.renderer.getContext();
 
+      this.sprite.tap =
       this.sprite.mousedown = (function(e) {
         var pixelData = new Uint8Array(4);
         var gl = this.gl;
