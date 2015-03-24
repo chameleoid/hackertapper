@@ -23,7 +23,6 @@ game.module(
       this.baseTexture = new game.BaseTexture(this.canvas);
       this.texture = new game.Texture(this.baseTexture);
       this.sprite = new game.Sprite(this.texture);
-      this.sprite.fixedToCamera = true;
 
       this.scene = new game.THREE.Scene();
 
