@@ -20,8 +20,7 @@ game.module(
 
       this.canvas = this.renderer.domElement;
 
-      this.baseTexture = new game.BaseTexture(this.canvas);
-      this.texture = new game.Texture(this.baseTexture);
+      this.texture = new game.Texture.fromCanvas(this.canvas);
       this.sprite = new game.Sprite(this.texture);
 
       this.scene = new game.THREE.Scene();
